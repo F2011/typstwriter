@@ -10,7 +10,7 @@ on:
 jobs:
   test:
     name: Test
-    uses: Bzero/typstwriter/.github/workflows/ci.yml@master
+    uses: F2011/typstwriter/.github/workflows/ci.yml@release-pipeline
 
   build-macos-dmg:
     runs-on: macos-latest
