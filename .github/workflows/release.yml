@@ -2,9 +2,8 @@ name: Release
 
 on:
   push:
-    branches: [master]
-    # tags:
-    #   - "v*"
+    tags:
+      - "v*"
   workflow_dispatch:
 
 jobs:
@@ -28,11 +27,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install .
           pip install pyinstaller
 
       - name: Build macOS app with PyInstaller
         run: |
-          pyinstaller typstwriter/typstwriter.py --windowed --onefile --name typstwriter
+          pyinstaller typstwriter.spec
 
       - name: Install create-dmg
         run: brew install create-dmg
@@ -54,7 +54,6 @@ jobs:
         with:
           files: |
             typstwriter.dmg
-            dist/typstwriter.app/
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           prerelease: false
