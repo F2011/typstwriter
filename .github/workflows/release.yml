@@ -52,7 +52,9 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: typstwriter.dmg
+          files: |
+            typstwriter.dmg
+            dist/typstwriter.app/
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           prerelease: false
