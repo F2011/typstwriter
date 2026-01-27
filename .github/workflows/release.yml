@@ -2,9 +2,9 @@ name: Release
 
 on:
   push:
-    branches: [master]
-    tags:
-      - "v*" # Triggers on version tags like v1.0.0
+    branches: [master, release-pipeline]
+    # tags:
+    #   - "v*"
   workflow_dispatch:
 
 jobs:
