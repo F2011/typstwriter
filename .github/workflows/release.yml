@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: Run tests
-    uses: F2011/typstwriter/.github/workflows/ci.yml@master
+    uses: Bzero/typstwriter/.github/workflows/ci.yml@master
 
   build-macos-dmg:
     needs: test
